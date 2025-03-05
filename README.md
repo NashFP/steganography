@@ -57,11 +57,6 @@
   > We can hide our bits in side a pixel. We store 1 bit in each color code. We place our bit in the last digit of the color code. That means we can fit 3 bits in each pixel. We need 3 pixels to fit a whole letter, with one
   > extra bit.
 
-  # Challenge
-  Write a decoder to parse the text out from the hamlet_encoded.bmp image and write it to a file (decoded.txt).
-
-  Dr. Boady wrote an encoder and decoder in Python, can you write an encoder as well as the decoder?
-
   # Example
   hamlet_encoded.bmp has the entire text of Hamlet encoded in it (from [Project
   Gutenberg](https://www.gutenberg.org/ebooks/1524)). Can you tell any
@@ -79,6 +74,11 @@
   ## Hamlet Encoded
   ![screenshot](hamlet_encoded.bmp)
   
+  # Challenge
+  Write a decoder to parse the text out from the hamlet_encoded.bmp image and write it to a file (decoded.txt).
+
+  Dr. Boady wrote an encoder and decoder in Python, can you write an encoder as well as the decoder?
+
   # Interesting note on representing information
   On the topic of how meaning can be encoded,
   [from Dr. Boady](https://algorithms.boady.net/content/001_binary/007_chars.html?highlight=babel):
