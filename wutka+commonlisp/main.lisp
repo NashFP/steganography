@@ -25,7 +25,8 @@
 	 (decoded (car (reduce #'process-byte (pngload:data pixels)
 			       :initial-value initial-ctx))))
     ; Convert the image to a string
-    (map 'string #'identity decoded)))
+    (coerce decoded 'string)
+    ))
 
 
 (print (decode-file #p"../hamlet_encoded.png"))
