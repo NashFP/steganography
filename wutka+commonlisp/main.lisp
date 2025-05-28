@@ -4,17 +4,17 @@
   ; pluck out the 3 items we are using
   (destructuring-bind (out-bytes curr-byte bit-num) ctx
     ; add another bit to the current byte
-    (let ((new-byte (+ (* curr-byte 2) (logand byte 1))))
+    (let ((new-byte (+ (ash curr-byte 1) (logand byte 1))))
       (cond
 	; if we just did bit 7, add it to the output if it isn't 0
-	((= bit-num 7)
-	 (progn (when (> new-byte 0) (vector-push-extend
-				      (code-char new-byte) out-bytes))
-		; And reset the curr-byte and bit-num
-		(list out-bytes 0 0)))
+       ((= bit-num 7)
+	(when (> new-byte 0) (vector-push-extend
+			      (code-char new-byte) out-bytes))
+	; And reset the curr-byte and bit-num
+	(list out-bytes 0 0))
 	; Otherwise, return the current out-bytes, new-byte and
 	; increment the bit num
-	(t (list out-bytes new-byte (+ bit-num 1)))))))
+       (t (list out-bytes new-byte (+ bit-num 1)))))))
 
 (defun decode-file (filename)
   ; load the file
